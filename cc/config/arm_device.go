@@ -165,7 +165,7 @@ var (
 )
 
 const (
-	armGccVersion = "4.9"
+	armGccVersion = "4.9-linaro"
 )
 
 func init() {
