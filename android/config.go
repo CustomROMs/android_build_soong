@@ -849,3 +849,7 @@ func stringSlice(s *[]string) []string {
 		return nil
 	}
 }
+
+func (c *deviceConfig) TargetHeaderPathDir() string {
+	return String(c.config.ProductVariables.TargetHeaderPath)
+}

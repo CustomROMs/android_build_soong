@@ -225,6 +225,7 @@ type productVariables struct {
 
 	Override_rs_driver *string `json:",omitempty"`
 
+	TargetHeaderPath *string `json:",omitempty"`
 	DeviceKernelHeaders []string `json:",omitempty"`
 	DistDir             *string  `json:",omitempty"`
 
