@@ -83,7 +83,6 @@ var (
 	}
 
 	armArmCflags = []string{
-		"-fstrict-aliasing",
 	}
 
 	armThumbCflags = []string{
