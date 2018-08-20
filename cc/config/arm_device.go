@@ -85,7 +85,6 @@ var (
 	armLldflags = ClangFilterUnknownLldflags(armLdflags)
 
 	armArmCflags = []string{
-		"-fstrict-aliasing",
 	}
 
 	armThumbCflags = []string{
