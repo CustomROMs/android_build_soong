@@ -777,7 +777,7 @@ func (c *deviceConfig) DeviceKernelHeaderDirs() []string {
 }
 
 func (c *deviceConfig) SpecificCameraParametersLibrary() string {
-	return String(c.config.ProductVariables.Lineage.Specific_camera_parameter_library)
+	return String(c.config.productVariables.Lineage.Specific_camera_parameter_library)
 }
 
 func (c *deviceConfig) NativeCoverageEnabled() bool {
@@ -851,5 +851,5 @@ func stringSlice(s *[]string) []string {
 }
 
 func (c *deviceConfig) TargetHeaderPathDir() string {
-	return String(c.config.ProductVariables.TargetHeaderPath)
+	return String(c.config.productVariables.TargetHeaderPath)
 }
