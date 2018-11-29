@@ -29,9 +29,52 @@ var (
 
 	armCflags = []string{
 		"-fomit-frame-pointer",
+		"-DDISABLE_ASHMEM_TRACKING",
+		"-DUMOUNT_AND_FSCK_IS_UNSAFE",
+		"-DTARGET_LEGACY_CAMERA_HAL1",
+		"-DMETADATA_CAMERA_SOURCE",
+		"-DCAMCORDER_GRALLOC_SOURCE",
+		"-DHARDWARE_FIFO_SENSOR_SERVICE",
+		"-DCOMPAT_SENSORS_M",
+		"-DSTE_HARDWARE",
+		"-DSTE_SAMSUNG_HARDWARE",
+		"-DFORCE_SCREENSHOT_CPU_PATH",
+		"-DBOARD_CANT_REALLOCATE_OMX_BUFFERS",
+		"-DMR0_AUDIO_BLOB",
+		"-DMR1_AUDIO_BLOB",
+		"-DRECOVERY_CANT_USE_CONFIG_EXT4_FS_XATTR",
+		"-DNEEDS_VECTORIMPL_SYMBOLS",
+		"-DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL",
+		"-DHAVE_PRE_KITKAT_AUDIO_POLICY_BLOB",
+		"-DHAVE_PRE_KITKAT_AUDIO_BLOB",
+		"-DCANNOT_SET_SURFACE_WITHOUT_A_FLUSH",
+		"-DREQUIRES_SYNCHRONOUS_SETSURFACE",
+		"-DEGL_NEEDS_HANDLE",
 	}
 
-	armCppflags = []string{}
+	armCppflags = []string{
+		"-DDISABLE_ASHMEM_TRACKING",
+		"-DUMOUNT_AND_FSCK_IS_UNSAFE",
+		"-DTARGET_LEGACY_CAMERA_HAL1",
+		"-DMETADATA_CAMERA_SOURCE",
+		"-DCAMCORDER_GRALLOC_SOURCE",
+		"-DHARDWARE_FIFO_SENSOR_SERVICE",
+		"-DCOMPAT_SENSORS_M",
+		"-DSTE_HARDWARE",
+		"-DSTE_SAMSUNG_HARDWARE",
+		"-DFORCE_SCREENSHOT_CPU_PATH",
+		"-DBOARD_CANT_REALLOCATE_OMX_BUFFERS",
+		"-DMR0_AUDIO_BLOB",
+		"-DMR1_AUDIO_BLOB",
+		"-DRECOVERY_CANT_USE_CONFIG_EXT4_FS_XATTR",
+		"-DNEEDS_VECTORIMPL_SYMBOLS",
+		"-DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL",
+		"-DHAVE_PRE_KITKAT_AUDIO_POLICY_BLOB",
+		"-DHAVE_PRE_KITKAT_AUDIO_BLOB",
+		"-DCANNOT_SET_SURFACE_WITHOUT_A_FLUSH",
+		"-DREQUIRES_SYNCHRONOUS_SETSURFACE",
+		"-DEGL_NEEDS_HANDLE",
+        }
 
 	armLdflags = []string{
 		"-Wl,--icf=safe",
@@ -40,7 +83,6 @@ var (
 	}
 
 	armArmCflags = []string{
-		"-fstrict-aliasing",
 	}
 
 	armThumbCflags = []string{
@@ -78,6 +120,9 @@ var (
 		},
 		"cortex-a8": []string{
 			"-mcpu=cortex-a8",
+		},
+		"cortex-a9": []string{
+			"-mcpu=cortex-a9",
 		},
 		"cortex-a15": []string{
 			"-mcpu=cortex-a15",
@@ -207,6 +252,7 @@ func init() {
 	pctx.StaticVariable("ArmGenericCflags", strings.Join(armCpuVariantCflags[""], " "))
 	pctx.StaticVariable("ArmCortexA7Cflags", strings.Join(armCpuVariantCflags["cortex-a7"], " "))
 	pctx.StaticVariable("ArmCortexA8Cflags", strings.Join(armCpuVariantCflags["cortex-a8"], " "))
+	pctx.StaticVariable("ArmCortexA9Cflags", strings.Join(armCpuVariantCflags["cortex-a9"], " "))
 	pctx.StaticVariable("ArmCortexA15Cflags", strings.Join(armCpuVariantCflags["cortex-a15"], " "))
 	pctx.StaticVariable("ArmCortexA53Cflags", strings.Join(armCpuVariantCflags["cortex-a53"], " "))
 	pctx.StaticVariable("ArmCortexA55Cflags", strings.Join(armCpuVariantCflags["cortex-a55"], " "))
@@ -238,6 +284,8 @@ func init() {
 		strings.Join(armClangCpuVariantCflags["cortex-a7"], " "))
 	pctx.StaticVariable("ArmClangCortexA8Cflags",
 		strings.Join(armClangCpuVariantCflags["cortex-a8"], " "))
+	pctx.StaticVariable("ArmClangCortexA9Cflags",
+		strings.Join(armClangCpuVariantCflags["cortex-a9"], " "))
 	pctx.StaticVariable("ArmClangCortexA15Cflags",
 		strings.Join(armClangCpuVariantCflags["cortex-a15"], " "))
 	pctx.StaticVariable("ArmClangCortexA53Cflags",
@@ -261,6 +309,7 @@ var (
 		"":               "${config.ArmGenericCflags}",
 		"cortex-a7":      "${config.ArmCortexA7Cflags}",
 		"cortex-a8":      "${config.ArmCortexA8Cflags}",
+		"cortex-a9":      "${config.ArmCortexA9Cflags}",
 		"cortex-a15":     "${config.ArmCortexA15Cflags}",
 		"cortex-a53":     "${config.ArmCortexA53Cflags}",
 		"cortex-a53.a57": "${config.ArmCortexA53Cflags}",
@@ -284,6 +333,7 @@ var (
 		"":               "${config.ArmClangGenericCflags}",
 		"cortex-a7":      "${config.ArmClangCortexA7Cflags}",
 		"cortex-a8":      "${config.ArmClangCortexA8Cflags}",
+		"cortex-a9":      "${config.ArmClangCortexA9Cflags}",
 		"cortex-a15":     "${config.ArmClangCortexA15Cflags}",
 		"cortex-a53":     "${config.ArmClangCortexA53Cflags}",
 		"cortex-a53.a57": "${config.ArmClangCortexA53Cflags}",
